@@ -12,9 +12,9 @@ db=SQLAlchemy(app)
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'fallback_secret_key')
 co = cohere.Client('9xtb0BFwgzrTgGQIG7QJrdZAUBH8oQoW30EK2Z7I')
 
-model = joblib.load('gut_health_model.pkl')
-scaler = joblib.load('scaler.pkl')
-feature_columns = joblib.load('feature_columns.pkl')
+model = joblib.load('./models/gut_health_model.pkl')
+scaler = joblib.load('./models/scaler.pkl')
+feature_columns = joblib.load('./models/feature_columns.pkl')
 encoder = LabelEncoder()
 
 class User(db.Model):
