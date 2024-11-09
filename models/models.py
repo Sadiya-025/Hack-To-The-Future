@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
-filename = 'train.csv'
+filename = './data/train.csv'
 train = pd.read_csv(filename)
 train_data = train.drop('id', axis=1)
 
@@ -157,7 +157,7 @@ print(f'Confusion Matrix:\n{conf_matrix}')
 print(f'Classification Report:\n{class_report}')
 
 # Saves the model
-joblib.dump(model, 'gut_health_model.pkl')
+joblib.dump(model, 'gut_health_model.pkl', compress=3)
 
 # Saves the scaler
 joblib.dump(scaler, 'scaler.pkl')
