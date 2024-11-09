@@ -40,7 +40,7 @@ def signup():
         db.session.commit()        
         return redirect(url_for('signin'))
     
-    return render_template('./templates/sign-up.html')
+    return render_template('sign-up.html')
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -53,9 +53,9 @@ def signin():
             session['username'] = username
             return redirect(url_for('dashboard'))
         else:
-            return render_template('./templates/not-found.html')
+            return render_template('not-found.html')
     
-    return render_template('./templates/sign-in.html')
+    return render_template('sign-in.html')
 
 @app.route('/signout', methods=['GET', 'POST'])
 def signout():
@@ -66,12 +66,12 @@ def signout():
 @app.route('/about', methods=['GET'])
 def about():
     if request.method == 'GET':
-        return render_template('./templates/about.html')
+        return render_template('about.html')
     
 @app.route('/contact', methods=['GET'])
 def contact():
     if request.method == 'GET':
-        return render_template('./templates/contact.html')
+        return render_template('contact.html')
 
 @app.route('/dashboard')
 def dashboard():
@@ -79,7 +79,7 @@ def dashboard():
         return redirect(url_for('signin'))
     
     username = session['username']
-    return render_template('./templates/dashboard.html', username=username)
+    return render_template('dashboard.html', username=username)
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -176,7 +176,7 @@ def predict():
     health_report = markdown.markdown(health_report)
     username = session['username']
 
-    return render_template('./templates/dashboard.html', prediction=result, health_report=health_report, username=username)
+    return render_template('dashboard.html', prediction=result, health_report=health_report, username=username)
 
 @app.route('/inference', methods=['GET', 'POST'])
 def inference():
@@ -209,7 +209,7 @@ def inference():
 
 @app.route('/forecast', methods=['GET', 'POST'])
 def forecast():
-    return render_template("./templates/forecast.html")
+    return render_template("forecast.html")
 
 if __name__ == '__main__':
     from os import environ
