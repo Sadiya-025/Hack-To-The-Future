@@ -2,3 +2,4 @@ pandas==2.2.3
 cohere==5.11.3
 markdown==3.7
 joblib==1.4.2
+flask_sqlalchemy==3.1.1
