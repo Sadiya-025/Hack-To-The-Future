@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/database.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite3'
 
 db=SQLAlchemy(app)
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'fallback_secret_key')
